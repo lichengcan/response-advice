@@ -15,3 +15,5 @@ CMD ["java", "-jar", "/app/common-result-0.0.1-SNAPSHOT.jar"]
 
 #docker build -t docker-test .
 #这将会在当前目录中构建一个名为 my-spring-boot-app 的Docker镜像。然后，可以使用以下命令来运行该镜像：
+
+
