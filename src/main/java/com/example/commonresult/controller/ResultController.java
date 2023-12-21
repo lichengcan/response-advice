@@ -19,7 +19,7 @@ import javax.validation.constraints.NotBlank;
 public class ResultController {
     @GetMapping("/{num}")
     public Integer detail(@PathVariable("num") @Min(1) @Max(20) Integer num) {
-        int i = 1/0;
+        int i = 1/num;
         return num * num;
     }
 

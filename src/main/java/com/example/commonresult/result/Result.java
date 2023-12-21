@@ -1,20 +1,31 @@
 package com.example.commonresult.result;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 统一返回数据结构
+ *
  * @param <T>
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Result<T> {
     private Integer code;
     private String message;
     private T data;
+
+    public Result() {
+    }
+
+    public Result(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public Result(Integer code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
 
     public static <T> Result<T> success(T data) {
         return new Result<>(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getMessage(), data);
@@ -42,5 +53,10 @@ public class Result<T> {
         result.setMessage(message);
         result.setData(data);
         return result;
+    }
+
+
+    public static Result<?> failed(Integer code, String message) {
+        return new Result<>(code, message);
     }
 }
